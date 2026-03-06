@@ -1,0 +1,34 @@
+package XuatSac.XuatSac2;
+
+import XuatSac.InvalidAgeException;
+
+public class User {
+
+    private String name;
+    private int age;
+
+    public User(String name, int age) throws InvalidAgeException {
+        this.name = name;
+        setAge(age);
+    }
+
+    public void setAge(int age) throws InvalidAgeException {
+
+        if (age < 0 || age > 120) {
+            throw new InvalidAgeException("Tuổi không hợp lệ cho đăng ký!");
+        }
+
+        this.age = age;
+    }
+
+    public void display() {
+
+        if (name != null) {
+            System.out.println("Tên: " + name);
+        } else {
+            System.out.println("Tên chưa được thiết lập");
+        }
+
+        System.out.println("Tuổi: " + age);
+    }
+}
